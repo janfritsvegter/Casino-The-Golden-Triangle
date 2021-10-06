@@ -57,7 +57,7 @@ public class TicTacToe extends jfv.Games {
                 players.add(inputPlayers.get(i));
             }
         }else{
-            for (int i = inputPlayers.size(); i > 0 ; i--) {
+            for (int i = (inputPlayers.size() - 1); i >= 0 ; i--) {
                 players.add(inputPlayers.get(i));
             }
         }

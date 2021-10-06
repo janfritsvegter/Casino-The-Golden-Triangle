@@ -60,20 +60,20 @@ public class Player {
     }
 
     public static String inputToken(String tokenOtherPlayer){
-        String inputToken = " ";
+        String Token = " ";
         boolean inputSucces = false;
         System.out.print("met wat voor teken wil je spelen (1 letter) bij meerdere tekens wordt de eerste genomen ");
         while (!inputSucces) {
-            inputToken = inputString();
-            char tempToken = inputToken.charAt(0);
-            if (tempToken != tokenOtherPlayer.charAt(0)) {
+            String inputToken = inputString();
+            Token = Character.toString(inputToken.charAt(0));
+            if (Token != tokenOtherPlayer) {
                 inputToken = String.valueOf(inputToken);
                 inputSucces = true;
             } else {
                 System.out.println("Het mag geen " + tokenOtherPlayer + " zijn probeer opnieuw");
             }
         }
-        return inputToken;
+        return Token;
     }
 
     private static String inputString(){

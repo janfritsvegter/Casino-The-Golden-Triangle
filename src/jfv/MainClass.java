@@ -29,6 +29,7 @@ public class MainClass {
         }
         boolean stopPlaying = false;
         while (!stopPlaying) {
+            // TODO at the moment you play a second game the list of players is not empty so new players will be added
             game = createGame();
 
             System.out.println("U heeft gekozen voor: " + game.getGameName());

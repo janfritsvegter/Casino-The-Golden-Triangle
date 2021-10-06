@@ -19,6 +19,8 @@ public class FourInaRow extends jfv.Games{
     public String getGameName() {
         return this.gameName;
     }
+
+
 }
 
 
