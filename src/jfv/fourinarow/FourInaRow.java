@@ -264,7 +264,126 @@ public class FourInaRow extends jfv.Games {
                 search = false; // the search stops in the direction down because of above the board
             }
         }
-    return false;
+        // new direction left right
+        rowLength = 1; // the last field is 1 in a row
+        searchColumn = column;
+        search = true;
+        while (search) {// first direction left
+            searchColumn = searchColumn - 1; // we go 1 field to the  left
+            if (searchColumn >= 0) {
+                if (board[searchColumn][row] == token) {// the token is the same
+                    rowLength = rowLength + 1; // the lenghth of the combination is 1 up
+                    if (rowLength == 4) {
+                        return true; // we have a winner
+                    }
+                } else { // the token is not the same
+                    search = false; // the search stops in the direction left because of wrong token
+                }
+            } else { // we get left of the board
+                search = false; // the search stps in the direction left because of left of the board
+            }
+        }
+        searchColumn = column; // start at the beginning
+        search = true;
+        while (search) {// now in the direction up
+            searchColumn = searchColumn + 1; // we go 1 field to the right
+            if (searchColumn < board.length) { // because of the start at 0 the full length is not allowed
+                if (board[searchColumn][row] == token) {// the token is the same
+                    rowLength = rowLength + 1; // the lenghth of the combination is 1 up
+                    if (rowLength == 4) {
+                        return true; // we have a winner
+                    }
+                } else { // the token is not the same
+                    search = false; // the search stops in the direction down because of wrong token
+                }
+            } else { // we get right of the board
+                search = false; // the search stops in the direction down because of right of the the board
+            }
+        }
+        // linksonder rechtsboven
+        rowLength = 1; // the last field is 1 in a row
+        searchColumn = column;
+        searchRow = row;
+        search = true;
+        while (search) {// first direction left
+            searchColumn = searchColumn - 1; // we go 1 field to the  left
+            searchRow = searchRow - 1; // we go 1 field down
+            if (searchColumn >= 0 && searchRow >= 0) {
+                if (board[searchColumn][searchRow] == token) {// the token is the same
+                    rowLength = rowLength + 1; // the lenghth of the combination is 1 up
+                    if (rowLength == 4) {
+                        return true; // we have a winner
+                    }
+                } else { // the token is not the same
+                    search = false; // the search stops in the direction left down because of wrong token
+                }
+            } else { // we get left of the board
+                search = false; // the search stps in the direction left down because of left or down of the board
+            }
+        }
+        searchColumn = column; // start at the beginning
+        searchRow = row;
+        search = true;
+        while (search) {// now in the direction up
+            searchColumn = searchColumn + 1; // we go 1 field to the right
+            searchRow = searchRow + 1; // we go 1 field up
+            if (searchColumn < board.length && searchRow < board[column].length) { // because of the start at 0 the full length is not allowed
+                if (board[searchColumn][searchRow] == token) {// the token is the same
+                    rowLength = rowLength + 1; // the lenghth of the combination is 1 up
+                    if (rowLength == 4) {
+                        return true; // we have a winner
+                    }
+                } else { // the token is not the same
+                    search = false; // the search stops in the direction right up because of wrong token
+                }
+            } else { // we get right of the board
+                search = false; // the search stops in the direction  right up of the the board
+            }
+        }
+
+        // rechtsonder linksboven
+        rowLength = 1; // the last field is 1 in a row
+        searchColumn = column;
+        searchRow = row;
+        search = true;
+        while (search) {// first direction left
+            searchColumn = searchColumn + 1; // we go 1 field to the right
+            searchRow = searchRow - 1; // we go 1 field down
+            if (searchColumn < board.length && searchRow >= 0) {
+                if (board[searchColumn][searchRow] == token) {// the token is the same
+                    rowLength = rowLength + 1; // the lenghth of the combination is 1 up
+                    if (rowLength == 4) {
+                        return true; // we have a winner
+                    }
+                } else { // the token is not the same
+                    search = false; // the search stops in the direction left down because of wrong token
+                }
+            } else { // we get left of the board
+                search = false; // the search stps in the direction left down because of left or down of the board
+            }
+        }
+        searchColumn = column; // start at the beginning
+        searchRow = row;
+        search = true;
+        while (search) {// now in the direction up
+            searchColumn = searchColumn - 1; // we go 1 field to the left
+            searchRow = searchRow + 1; // we go 1 field up
+            if (searchColumn >= 0 && searchRow < board[column].length) { // because of the start at 0 the full length is not allowed
+                if (board[searchColumn][searchRow] == token) {// the token is the same
+                    rowLength = rowLength + 1; // the lenghth of the combination is 1 up
+                    if (rowLength == 4) {
+                        return true; // we have a winner
+                    }
+                } else { // the token is not the same
+                    search = false; // the search stops in the direction right up because of wrong token
+                }
+            } else { // we get right of the board
+                search = false; // the search stops in the direction  right up of the the board
+            }
+        }
+
+
+        return false;
     }
 
 }
