@@ -34,6 +34,9 @@ public class Player {
         return lastName;
     }
 
+    public String getCompleteName() {
+        return this.firstName + " " + this.lastName;
+    }
     public String toString(){
         return this.firstName + " " + this.lastName + " speelt met " + token;
     }
