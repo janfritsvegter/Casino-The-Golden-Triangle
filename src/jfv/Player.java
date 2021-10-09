@@ -40,8 +40,6 @@ public class Player {
 
     // THis method creates the player objects.
     public static Player createPlayer(int number, Games game) {
-
-
         String token = " ";
         System.out.print("Speler " + number + " wat is je voornaam? ");
         String firstName = inputString();

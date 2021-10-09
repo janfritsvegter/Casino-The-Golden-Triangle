@@ -18,7 +18,6 @@ public class TicTacToe extends jfv.Games {
         this.gameName = "TicTacToe";
         this.amountPlayers = 2;
         this.tokenRequired = true;
-        //      this.deck = new Deck();
     }
 
     @Override
