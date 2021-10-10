@@ -6,19 +6,15 @@ import jfv.Player;
 import java.util.*;
 
 public class FourInaRow extends jfv.Games {
-    private Scanner inputScanner;
-    private Random random;
     private String gameName;
     private int amountPlayers;
-    private boolean tokenRequired;
+    private String playerOptions;
     private String emptyVallue = " ";
 
-    public FourInaRow(Scanner inputScanner, Random random) {
-        this.inputScanner = inputScanner;
-        this.random = random;
+    public FourInaRow() {
         this.gameName = "Four in a row";
         this.amountPlayers = 2;
-        this.tokenRequired = true;
+        this.playerOptions = "token";
     }
 
     @Override
@@ -32,8 +28,8 @@ public class FourInaRow extends jfv.Games {
     }
 
     @Override
-    public boolean isTokenRequired() {
-        return tokenRequired;
+    public String getPlayerOptions() {
+        return playerOptions;
     }
 
     @Override
@@ -64,7 +60,7 @@ public class FourInaRow extends jfv.Games {
         }
 
     }
-
+    // create the board input rows and columns
     private String[][] createBoard() {
         int rows; // the amount of rows of the board
         int minRows = 4; // het minimale aantal rijen van het speelveld

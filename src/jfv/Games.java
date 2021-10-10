@@ -11,7 +11,9 @@ public abstract class Games {
 
     public int getAmountPlayers(){return 0;}
 
-    public boolean isTokenRequired(){return false;}
+    public String getPlayerOptions() {
+        return " ";
+    }
 
     public void playGame(List<Player> inputPlayers,int timesPlayed){}
 

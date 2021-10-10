@@ -5,19 +5,14 @@ import jfv.Player;
 import java.util.*;
 
 public class TicTacToe extends jfv.Games {
-
-    private Scanner inputScanner;
-    private Random random;
     private String gameName;
     private int amountPlayers;
-    private boolean tokenRequired;
+    private String playerOptions;
 
-    public TicTacToe(Scanner inputScanner, Random random) {
-        this.inputScanner = inputScanner;
-        this.random = random;
+    public TicTacToe() {
         this.gameName = "TicTacToe";
         this.amountPlayers = 2;
-        this.tokenRequired = true;
+        this.playerOptions = "token";
     }
 
     @Override
@@ -31,8 +26,8 @@ public class TicTacToe extends jfv.Games {
     }
 
     @Override
-    public boolean isTokenRequired() {
-        return tokenRequired;
+    public String getPlayerOptions() {
+        return playerOptions;
     }
 
 
@@ -100,6 +95,7 @@ public class TicTacToe extends jfv.Games {
 
     private boolean doMove(String[] board, Player player, String[] usedBoard) {
         printBoard(board);
+        Scanner inputScanner = new Scanner(System.in);
         String token = player.getToken();
         String firstName = player.getFirstName();
         String lastName = player.getLastName();

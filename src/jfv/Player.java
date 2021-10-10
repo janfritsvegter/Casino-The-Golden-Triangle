@@ -41,21 +41,29 @@ public class Player {
         return this.firstName + " " + this.lastName + " speelt met " + token;
     }
 
-    // THis method creates the player objects.
+    // This method creates the player objects.
+    // In the attribute playerOptions is the special possibilities needed for the game.
     public static Player createPlayer(int number, Games game) {
         String token = " ";
+        Player player;
         System.out.print("Speler " + number + " wat is je voornaam? ");
         String firstName = inputString();
         System.out.print("Speler " + number + " wat is je achternaam? ");
         String lastName = inputString();
 
-        boolean tokenRequired = game.isTokenRequired();
-        if (tokenRequired) {
+        // TODO tokenrequired  uitbreiden naar meer moegelijkheden zoals extra class player
+        String playerOptions = game.getPlayerOptions();
+        if (playerOptions.equals("token")) {
             System.out.print(firstName + " " + lastName + " ");
             token = inputToken(" ");
+            player = new Player(firstName,lastName,token);
+        }else if (playerOptions.equals("cardGame")){
+            player = new Player(firstName,lastName,token);
+        }else{
+            player = new Player(firstName,lastName);
         }
 
-        Player player = new Player(firstName,lastName,token);
+
 
         return player;
     }

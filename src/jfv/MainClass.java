@@ -3,6 +3,7 @@ package jfv;
 import jfv.fourinarow.FourInaRow;
 import jfv.oops.Oops;
 import jfv.tictactoe.TicTacToe;
+import jfv.blackjack.BlackJack;
 
 import java.util.*;
 
@@ -22,11 +23,12 @@ public class MainClass {
         for (int i = 0; i < players.size(); i++) {
             System.out.println(players.get(i));
         }
-*/
+
 
         for (int i = 0; i < players.size() ; i++) {
             queuePlayers.add(players.get(i));
         }
+ */
         boolean stopPlaying = false;
         while (!stopPlaying) {
             // TODO at the moment you play a second game the list of players is not empty so new players will be added
@@ -78,17 +80,21 @@ public class MainClass {
 
         switch (gameNumber) {
             case 1:
-                TicTacToe ticTacToe = new TicTacToe(inputScanner, random);
+                TicTacToe ticTacToe = new TicTacToe();
                 return ticTacToe;
             case 2:
-                FourInaRow fourInaRow = new FourInaRow(inputScanner, random);
+                FourInaRow fourInaRow = new FourInaRow();
                 return fourInaRow;
+            case 4:
+                BlackJack blackJack = new BlackJack();
             default:
                 Oops oops = new Oops();
                 return oops;
         }
     }
-
+    // returns if you want to keep playing
+    // if the input is game it is only the present game
+    // else it is stop totaly or play another game
     public static boolean anotherTime(String kind){
         Scanner inputScanner = new Scanner(System.in);
         if(kind == "game") {
